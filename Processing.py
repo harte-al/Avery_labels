@@ -77,3 +77,45 @@ for pt in pts:
             x = 1
             break
 print(f"Label3 : {label3}")
+
+
+# label 4
+date_range = date.today().strftime("%m-%d-%y") + " to " + (date.today() + timedelta(days=5)).strftime("%m-%d-%y")
+row1 = [hh_num, date_range, "Day 1 to 5"]
+date_range = (date.today() + timedelta(days=6)).strftime("%m-%d-%y") + " to " + (date.today() + timedelta(days=10)).strftime("%m-%d-%y")
+row2 = [hh_num, date_range, "Day 6 to 10"]
+
+label4.append(row1)
+label4.append(row2)
+print(f"label4 : {label4}")
+
+# label 5
+for pt in pts:
+    while x < 2:
+        swabdate = (date.today() + timedelta(days=(x - 1))).strftime("%m-%d-%y")
+        row1 = [pt, swabdate, "Day 1"]
+        label5.append(row1)
+        date_range = ("Complete between " + (date.today() + timedelta(days=30)).strftime("%m-%d-%y") + " to " +
+                      (date.today() + timedelta(days=44)).strftime("%m-%d-%y"))
+        row2 = [pt, date_range, "Day 30"]
+        label5.append(row2)
+        x += 1
+        if x == 2:
+            x = 1
+            break
+print(f"Label5 : {label5}")
+
+master_label.append(label1)
+master_label.append(label2)
+master_label.append(label3)
+master_label.append(label4)
+master_label.append(label5)
+
+print(f"master_label: {master_label}")
+
+with open(CSV_FILE, 'w') as file:
+    write = csv.writer(file)
+
+    write.writerow(HEADERS)
+    write.writerows(master_label)
+file.close()
