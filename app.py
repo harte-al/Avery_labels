@@ -107,7 +107,7 @@ class Label_generation:
                 swabdate = (date.today() + timedelta(days=(x - 1))).strftime("%m-%d-%y")
                 row = [pt, swabdate, "Day 1"]
                 master_label.append(row)
-                date_range = ("Complete between " + (date.today() + timedelta(days=30)).strftime("%m-%d-%y") + " to " +
+                date_range = ("Between " + (date.today() + timedelta(days=30)).strftime("%m-%d") + " to " +
                               (date.today() + timedelta(days=44)).strftime("%m-%d-%y"))
                 row = [pt, date_range, "Day 30"]
                 master_label.append(row)
@@ -165,6 +165,10 @@ while True:
         write.writerows(master_label)
     file.close()
 
+    print(" ")
+    print('Success! CSV file can be found where script is stored.')
+    print("**Remember** to deleted PHI from computer after printing, Thank you!")
+    break
 
     print('Success! CSV file can be found where script is stored.')
     print("**Remember** to deleted PHI from computer after printing, Thank you!")
