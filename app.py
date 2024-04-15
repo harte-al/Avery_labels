@@ -169,7 +169,3 @@ while True:
     print('Success! CSV file can be found where script is stored.')
     print("**Remember** to deleted PHI from computer after printing, Thank you!")
     break
-
-    print('Success! CSV file can be found where script is stored.')
-    print("**Remember** to deleted PHI from computer after printing, Thank you!")
-    break
